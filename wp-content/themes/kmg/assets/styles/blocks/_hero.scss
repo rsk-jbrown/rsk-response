@@ -1,0 +1,153 @@
+.hero {
+	position: relative;
+	z-index: 30;
+
+	&:after{
+		content: "";
+		display: block;
+		position: absolute;
+		left: 50%;
+		z-index: 30;
+		width: 50px;
+		height: 30px;
+		// background: $color-primary;
+		background-image: url(../../assets/images/arrows.png);
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		transform: rotate(90deg) translateY(50%);
+		bottom: -20px;
+
+		@media (max-width: 991.98px){
+			width: 40px;
+			height: 20px;
+			bottom: -10px;
+		}
+	}
+
+	&__slide {
+		width: 100%;
+	}
+
+	&__background {
+		position: relative;
+		//padding-top: 170px;
+		//padding-bottom: 260px;
+		height: 100%;
+		@include bg-cover;
+
+		@include aspect-ratio(1930, 605);
+		@include aspect-ratio(1920, 602);
+
+
+		@include media-breakpoint-down(lg) {
+			//padding-top: 140px;
+			//padding-bottom: 200px;
+			@include aspect-ratio(1930, 910);
+		}
+
+		@include media-breakpoint-down(sm) {
+			//padding-top: 130px;
+			//padding-bottom: 130px;
+		}
+	}
+
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		iframe {
+			box-sizing: border-box;
+			height: 56.25vw;
+			left: 50%;
+			min-height: 100%;
+			min-width: 100%;
+			transform: translate(-50%, -50%);
+			position: absolute;
+			top: 50%;
+			width: 500vh;
+		}
+	}
+
+	&__content {
+		width: auto;
+		margin-left: auto;
+
+		@include centerer-vertical;
+		right:0;
+
+		@media only screen and (max-width: $screen-xxl) {
+			max-width: 75%;
+		}
+
+		@include media-breakpoint-down(md) {
+			max-width: 100%;
+		}
+	}
+
+	&__title {
+		position: relative;
+		padding: 50px 45px 50px 45px;
+
+		@media only screen and (max-width: $screen-xxxl) {
+			padding-left: 50px;
+			padding-right: 10%;
+		}
+
+		@include media-breakpoint-down(md) {
+			padding: 35px;
+		}
+
+		@include media-breakpoint-down(xs) {
+			padding: 20px;
+		}
+
+		h1 {
+			position: relative;
+			z-index: 1;
+			margin: 0;
+			width:11.5em;
+			line-height:1.19;
+			@media only screen and (max-width: $screen-xxs) {
+				@include font-size(35px);
+			}
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 0;
+			width: calc(((100vw - 150%) / 2) + 100%);
+			height: 100%;
+			background: rgba($white, 0.75);
+
+			@media only screen and (max-width: $screen-xxl) {
+				width: calc(((100vw - 125%) / 2) + 100%);
+			}
+
+			@include media-breakpoint-down(md) {
+				width: calc(((100vw - 100%) / 2) + 100%);
+			}
+		}
+	}
+
+	.button {
+		padding-top: 100px;
+		text-align: right;
+		margin-right:130px;
+
+		@include media-breakpoint-down(lg) {
+			padding-top: 30px;
+		}
+
+		@include media-breakpoint-down(sm) {
+			display:none;
+		}
+	}
+}

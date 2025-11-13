@@ -1,0 +1,172 @@
+p,
+li {
+	@include font-size(20.1px);
+	margin-bottom: 20.1px;
+	font-weight:500;
+
+}
+
+//.copy-medium {
+//	@include font-size(30px);
+//
+//
+//	p,li {
+//		@include font-size(30px);
+//		margin-bottom: 30px;
+//
+//
+//	}
+//}
+
+//.copy-medium-large {
+//	@include font-size(35px);
+//
+//	@include media-breakpoint-down(lg) {
+//		@include font-size(33px);
+//	}
+//
+//
+//	p,li {
+//		@include font-size(35px);
+//		margin-bottom: 35px;
+//
+//		@include media-breakpoint-down(lg) {
+//			@include font-size(33px);
+//			margin-bottom: 30px;
+//		}
+//
+//	}
+//}
+
+//.copy-large {
+//    @include font-size(40px);
+//
+//    @include media-breakpoint-down(lg) {
+//        @include font-size(37px);
+//    }
+//
+//    @include media-breakpoint-down(xs) {
+//        @include font-size(35px);
+//    }
+//
+//    p,li {
+//        @include font-size(40px);
+//        margin-bottom: 40px;
+//
+//        @include media-breakpoint-down(lg) {
+//            @include font-size(37px);
+//            margin-bottom: 30px;
+//        }
+//
+//        @include media-breakpoint-down(xs) {
+//            @include font-size(35px);
+//        }
+//    }
+//}
+
+.copy-small {
+	@include font-size(20px);
+	p,li {
+		@include font-size(20px);
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 15px;
+	line-height: 1.4;
+	font-weight: 800;
+	color: $black;
+}
+
+h1 {
+	@include font-size(53px);
+
+	@include media-breakpoint-down(lg) {
+		@include font-size(40px);
+	}
+
+	@include media-breakpoint-down(sm) {
+		@include font-size(30px);
+	}
+
+	@include media-breakpoint-down(xs) {
+		@include font-size(20px);
+	}
+
+	&.smaller {
+		@include font-size(40px);
+
+		@include media-breakpoint-down(lg) {
+			@include font-size(35px);
+		}
+
+		@include media-breakpoint-down(xs) {
+			@include font-size(18px);
+		}
+	}
+}
+
+h2 {
+	@include font-size(40px);
+
+	@include media-breakpoint-down(lg) {
+		@include font-size(37px);
+	}
+
+	@include media-breakpoint-down(xs) {
+		@include font-size(32px);
+	}
+}
+
+h3 {
+	@include font-size(26.8px);
+
+	@include media-breakpoint-down(lg) {
+		@include font-size(30.15px);
+	}
+
+	@include media-breakpoint-down(xs) {
+		@include font-size(26.8px);
+	}
+}
+
+h4 {
+	@include font-size(26.8px);
+
+	@include media-breakpoint-down(lg) {
+		@include font-size(30.15px);
+	}
+
+	@include media-breakpoint-down(xs) {
+		@include font-size(26.8px);
+	}
+}
+
+h5 {
+	@include font-size(26.8px);
+
+	@include media-breakpoint-down(xs) {
+		@include font-size(24px);
+	}
+}
+
+h6 {
+	font-size: 18px;
+}
+
+.small {
+	font-size: 18px;
+}
+
+.micro {
+	font-size: 16px;
+}
+
+.nano {
+	font-size: 14px;
+}

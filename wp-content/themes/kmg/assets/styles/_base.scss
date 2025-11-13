@@ -1,0 +1,111 @@
+/* base styles: opinionated defaults */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: $white;
+  overflow-x: hidden;
+}
+
+html {
+  color: $black;
+  @include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
+  line-height: 1.4;
+}
+
+body {
+  line-height: 1.4;
+  font-size: $baseline;
+  font-weight: 400;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+::-moz-selection {
+  background: $selection;
+  text-shadow: none;
+}
+
+::selection {
+  background: $selection;
+  text-shadow: none;
+}
+
+::placeholder {
+  color: $midgrey;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: $midgrey;
+}
+
+::-ms-input-placeholder {
+  color: $midgrey;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $black;
+  margin: 15px 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+a,
+input[type="submit"],
+a span,
+.button {
+  transition: 300ms;
+  border-radius: 0;
+}
+
+
+
+ul,
+ol {
+  margin: 0 0 25px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+a,
+ul,
+li {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+strong {
+  font-weight: 700;
+}

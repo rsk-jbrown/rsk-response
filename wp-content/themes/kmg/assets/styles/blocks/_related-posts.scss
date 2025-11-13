@@ -1,0 +1,40 @@
+.related-posts {
+
+    &__posts {
+        margin: 0 -10px;
+    }
+
+    &__post {
+        padding: 0 10px;
+        min-height: 525px;
+
+        @include media-breakpoint-down(lg) {
+            min-height: 400px;
+        }
+
+        h4 {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+            transition: 300ms;
+        }
+
+
+        a {
+            &:hover, &:focus {
+                h4 {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    .flickity-enabled {
+        .flickity-page-dots {
+            .dot {
+                border-color: $midgrey;
+            }
+        }
+    }
+}

@@ -1,0 +1,199 @@
+.mobile-navigation {
+    position: fixed;
+    top: 0;
+    z-index: 1600;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    transition: 500ms;
+    transform: translateX(-100%);
+    text-align: right;
+    max-width: 500px;
+    pointer-events: none;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    &.active {
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+
+
+    a {
+        text-decoration: none;
+    }
+
+    &__header {
+        position: relative;
+        z-index: 800;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 55px;
+        height: 55px;
+        padding: 15px;
+        font-size: 25px;
+        line-height: 1;
+        cursor: pointer;
+        transition: 300ms;
+        text-align: right;
+        border-left: 1px solid $offwhite;
+        border-bottom: 1px solid $offwhite;
+        color: $color-primary;
+
+        &:hover, &:focus {
+            color: $white;
+            background: $color-primary;
+        }
+
+        svg {
+            vertical-align: middle;
+        }
+    }
+
+    &__nav {
+        padding-top: 60px;
+        padding-bottom: 30px;
+        text-align: left;
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            margin: 0;
+            font-weight: 800;
+            font-size: 20px;
+            border-bottom: 1px solid $offwhite;
+
+
+
+
+            > .nav-item-arrow {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 10;
+                width: 60px;
+                margin: auto 0;
+                font-size: 25px;
+                transition: 300ms;
+                cursor: pointer;
+                color: $color-primary;
+                background: $white;
+
+                &:hover {
+                    color: $white;
+                    background: $color-primary;
+                }
+            }
+        }
+
+        a {
+            display: block;
+            padding: 15px 50px 15px 15px;
+            color: $color-primary;
+
+            &:hover, &:focus {
+                color: $white;
+                background: $color-primary;
+            }
+        }
+
+
+        .sub-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 700;
+            width: 100%;
+            height: 100%;
+            padding: 60px 0 30px;
+            transform: translateX(100%);
+            background: $white;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+
+            &.active {
+                transform: translateX(0);
+            }
+
+
+        }
+
+        .nav-back-link {
+            border-bottom: none;
+            padding: 15px;
+            cursor: pointer;
+            transition: 300ms;
+            svg {
+                margin-bottom: 4px;
+                margin-right: 10px;
+                font-size: 25px;
+                vertical-align: middle;
+            }
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+    .nav-button {
+        padding-top: 80px;
+        margin-bottom: 10px;
+
+        a {
+            line-height: 1;
+            padding: 16px 15px;
+            text-align: center;
+            background: $color-primary;
+            color: $darkgrey;
+
+            &:hover, &:focus {
+                background: $white;
+            }
+        }
+    }
+
+    &__contact {
+        li {
+            font-size: 1.8rem;
+            border: none;
+        }
+
+        a {
+            padding: 10px 0;
+            color: $color-primary;
+            svg {
+                margin-right: 10px;
+            }
+        }
+    }
+}

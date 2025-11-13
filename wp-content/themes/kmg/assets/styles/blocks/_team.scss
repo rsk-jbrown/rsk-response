@@ -1,0 +1,140 @@
+.team {
+
+	&.less-than{
+
+		@media (min-width: 1199.98px){
+
+			.flickity-button{
+				display: none!important;
+			}
+
+			.flickity-slider{
+				transform: none!important;
+			}
+		}
+	}
+
+	&__carousel {
+		margin: 0 -5px;
+	}
+
+	&__carousel-item {
+		width: (100% / 3);
+		min-height: 400px;
+		padding: 0 5px;
+
+		@include media-breakpoint-down(lg) {
+			width: 50%;
+		}
+
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+			min-height: 350px;
+		}
+
+		.headings {
+
+			* {
+				&:first-child {
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+
+		a {
+			display: block;
+			position: relative;
+			overflow: hidden;
+			min-height: inherit;
+			backface-visibility: hidden;
+			transform: translate3d(0,0,0);
+			display: flex;
+			align-items: flex-end;
+
+			&:hover, &:focus {
+				.team__thumbnail {
+					transform: scale(1.1);
+
+					&:after {
+						opacity: 0.75;
+					}
+				}
+
+				.team__content {
+					opacity: 1;
+					visibility: visible;
+					pointer-events: auto;
+					width: 100%;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&__thumbnail {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transition: 600ms;
+		backface-visibility: hidden;
+		transform: translate3d(0,0,0);
+
+		@include bg-cover;
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(135deg,$color-secondary, rgba($darkgrey, 0.15));
+			opacity: 0;
+			transition: 600ms;
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 2;
+		padding: 50px;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: 300ms;
+	}
+
+	.flickity-enabled {
+		.flickity-button {
+			width: 45px;
+			height: 80px;
+			border-radius: 0;
+			background: $white;
+
+			svg {
+				color: $color-primary;
+			}
+
+			&.previous {
+				left: 0;
+			}
+
+			&.next {
+				right: 0;
+			}
+		}
+	}
+}
+
+.team-template-default {
+	.team {
+		&:after {
+			display:none;
+		}
+	}
+}

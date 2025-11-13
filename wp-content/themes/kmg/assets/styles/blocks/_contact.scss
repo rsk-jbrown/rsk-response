@@ -1,0 +1,29 @@
+.contact {
+
+	&__content {
+		max-width: 1000px;
+	}
+
+	&__form {
+		max-width: 480px;
+		margin-left: auto;
+
+		@include media-breakpoint-down(sm) {
+			padding-top: 30px;
+			margin-left: 0;
+		}
+
+		.headings {
+			margin-bottom: 35px;
+		}
+	}
+
+	&__copy,
+	&__details{
+
+		@media (min-width: 1200px){
+			width: 100%;
+			max-width: 880px;
+		}
+	}
+}

@@ -1,0 +1,119 @@
+.weight-hairline {
+    font-weight: 100;
+}
+
+.weight-thin {
+    font-weight: 200;
+}
+
+.weight-light {
+    font-weight: 300;
+}
+
+.weight-regular {
+    font-weight: 400;
+}
+
+.weight-medium {
+    font-weight: 500;
+}
+
+.weight-semibold {
+    font-weight: 600;
+}
+
+.weight-bold {
+    font-weight: 700;
+}
+
+.weight-extrabold {
+    font-weight: 800;
+}
+
+.weight-black {
+    font-weight: 900;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.centre {
+    text-align: center;
+}
+
+.last-margin {
+    & > * {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}
+
+.table {
+    display: table;
+}
+
+.table-cell {
+    display: table-cell;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-full-width {
+    padding: 0;
+    max-width: none;
+    .row {
+        margin: 0;
+        div[class*="col"] {
+            padding: 0;
+        }
+    }
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.overflow-menu {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}

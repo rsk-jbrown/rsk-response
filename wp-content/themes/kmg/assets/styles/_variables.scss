@@ -1,0 +1,50 @@
+/* Colours
+========== */
+
+$black: #000;
+$white: #fff;
+
+$darkgrey: #171717;
+$midgrey: #737373;
+$midgrey-two: #BDBDBD;
+$lightgrey: #eee;
+
+/* Brand Colours
+================ */
+
+$color-primary: #497593;//blue
+// $color-secondary: #003e51;
+$color-secondary: #95C11F; //green
+
+
+
+/* Element Colours
+================== */
+
+$offwhite: #E6E7E8;
+
+/* Misc Colours
+================ */
+
+$selection: #b3d4fc;
+
+$fail: #ff173a;
+$success: #4caf50;
+
+/* Fonts
+======== */
+
+$font-heading: 'Avenir LT Std' serif;
+$font-body: 'Avenir LT Std' sans-serif;
+
+//$baseline: 1.563rem;
+$baseline :20.1px;
+
+$minScreen: 20rem;
+$maxScreen: 120rem;
+$minFont: .72rem;
+$maxFont: 1rem;
+
+$screen-xxs: 415px;
+$screen-xxl: 1600px;
+$screen-xxxl: 1800px;

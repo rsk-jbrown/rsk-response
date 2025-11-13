@@ -1,0 +1,44 @@
+.tweets {
+
+    &__list {
+        @include media-breakpoint-down(lg) {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+    }
+
+    &__item {
+        @include media-breakpoint-down(lg) {
+            flex: 0 0 (100% / 3);
+            max-width: (100% / 3);
+            padding: 0 10px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .last-margin {
+            padding-top: 10px;
+        }
+        p {
+            font-size: 20px;
+
+            @include media-breakpoint-down(sm) {
+                font-size: 16px;
+            }
+
+            a {
+                font-weight: 900;
+            }
+        }
+    }
+
+    &__content {
+        height: 100%;
+        padding: 20px;
+        border: 1px solid $white;
+    }
+}

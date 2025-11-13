@@ -1,0 +1,17 @@
+.error-block {
+    &__background {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        min-height: 500px;
+        height: 100vh;
+        padding-bottom: 120px;
+        @include bg-cover;
+
+    }
+
+    &__content {
+        text-align: center;
+
+    }
+}

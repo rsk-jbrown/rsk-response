@@ -1,0 +1,91 @@
+.steps {
+
+    &__col {
+        flex: 0 0 25%;
+        max-width: 25%;
+
+        @include media-breakpoint-down(lg) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .flip-block {
+            background: $midgrey-two;
+
+            .flip-block__front {
+                background: $midgrey-two;
+            }
+
+            .flip-block__back {
+                background: $midgrey-two;
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            &:nth-child(odd) {
+                .flip-block {
+                    background: $offwhite;
+
+                    .flip-block__front {
+                        background: $offwhite;
+                    }
+
+                    .flip-block__back {
+                        background: $offwhite;
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            &:nth-child(3n + 1) {
+                .flip-block {
+                    background: $offwhite;
+
+                    .flip-block__front {
+                        background: $offwhite;
+                    }
+
+                    .flip-block__back {
+                        background: $offwhite;
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+
+            .flip-block {
+                background: $midgrey-two!important;
+
+
+                .flip-block__front {
+                    background: $midgrey-two!important;
+                }
+
+                .flip-block__back {
+                    background: $midgrey-two!important;
+                }
+            }
+
+            &:nth-child(odd) {
+                .flip-block {
+                    background: $offwhite!important;
+
+                    .flip-block__front {
+                        background: $offwhite!important;
+                    }
+
+                    .flip-block__back {
+                        background: $offwhite!important;
+                    }
+                }
+            }
+        }
+    }
+}

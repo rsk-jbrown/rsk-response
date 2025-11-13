@@ -1,0 +1,160 @@
+@mixin no-format {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+@mixin bg-cover {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@mixin indent {
+	text-transform: capitalize;
+	text-align: left;
+	text-indent: -99999px;
+}
+
+@mixin clearfix {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin descending-z-index($count: 50) {
+	position: relative;
+	.row {
+		position: relative;
+		$target: 0;
+		$index: $count;
+		@while $index > 0 {
+			&:nth-child(#{$target}) {
+				z-index: #{$index};
+			}
+			$target: $target + 1;
+			$index: $index - 1;
+		}
+	}
+}
+
+@mixin descending-order($count: 50) {
+	$target: $count;
+	$index: 0;
+	@while $index < $target {
+		&:nth-child(#{$index}) {
+			order: #{$index};
+		}
+		$target: $target - 1;
+		$index: $index + 1;
+	}
+}
+
+@mixin increment-delay($start: 0, $count: 100) {
+	$target: $count;
+	$index: 0;
+	@while $start < $target {
+		&:nth-child(#{$index}) {
+			transition-delay: #{$start * 100}ms;
+		}
+		$target: $target - 1;
+		$index: $index + 1;
+		$start: $start + 1;
+	}
+}
+
+@mixin one-word-per-line {
+	width: min-intrinsic;
+	width: -webkit-min-content;
+	width: -moz-min-content;
+	width: min-content;
+	display: table-caption;
+	display: -ms-grid;
+	-ms-grid-columns: min-content;
+}
+
+@mixin letter-spacing($font-size, $letter-spacing) {
+	letter-spacing: #{$letter-spacing / $font-size}em;
+}
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+	& {
+		@each $property in $properties {
+			#{$property}: $min-value;
+		}
+
+		@media screen and (min-width: $min-vw) {
+			@each $property in $properties {
+				#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+			}
+		}
+
+		@media screen and (min-width: $max-vw) {
+			@each $property in $properties {
+				#{$property}: $max-value;
+			}
+		}
+	}
+}
+
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return #{$remSize}rem;
+}
+
+@mixin font-size($size) {
+	font-size: $size; //Fallback in px
+	font-size: calculateRem($size);
+}
+
+@mixin centerer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin centerer-vertical {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+@mixin centerer-horizontal {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+//https://gist.github.com/nathobson/57f2c1a49d8ae2aa1037316268d55a9d
+/**************************************************************
+-> Usage: @include aspect-ratio(16, 9);
+**************************************************************/
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+
+	&::before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+

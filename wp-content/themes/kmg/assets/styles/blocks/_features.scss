@@ -1,0 +1,100 @@
+.features {
+	&--dark {
+		background: $darkgrey;
+		.flickity-enabled {
+			.flickity-button {
+				color: $white;
+			}
+		}
+	}
+
+	&--light {
+		background: $offwhite;
+
+		.flickity-enabled {
+			.flickity-button {
+				color: $midgrey;
+			}
+		}
+	}
+
+	.block-space{
+
+		padding-top: 120px;
+		padding-bottom: 120px;
+
+		@include media-breakpoint-down(md) {
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+
+		@include media-breakpoint-down(sm) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+
+		&[data-aos="fade"]{
+			transform: translateX(150%);
+
+			&.aos-animate{
+				transform: translateX(0%);
+			}
+		}
+	}
+
+	&__carousel {
+		@media only screen and (max-width: $screen-xxl) {
+			padding: 0 45px;
+		}
+	}
+
+	&__carousel-item {
+		width: 25%;
+		padding: 0 15px;
+
+		@media only screen and (max-width: $screen-xxl) {
+			width: (100% / 3);
+		}
+
+		@include media-breakpoint-down(lg) {
+			width: 50%;
+		}
+
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+		}
+	}
+
+	&__item-inner {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		max-width: 300px;
+		margin: 0 auto;
+	}
+
+	&__icon {
+		padding: 0 15px;
+
+		@include media-breakpoint-down(xs) {
+			flex: 0 0 100%;
+			max-width: 100%;
+			text-align: center;
+		}
+	}
+
+	&__text {
+		flex: 1 0;
+		padding: 10px 15px;
+
+		@include media-breakpoint-down(xs) {
+			flex: 0 0 100%;
+			max-width: 100%;
+			text-align: center;
+		}
+	}
+
+
+}
+
+

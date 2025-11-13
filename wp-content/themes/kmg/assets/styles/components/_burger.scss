@@ -1,0 +1,103 @@
+/* Burger Menu
+============== */
+
+.burger {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: $color-primary;
+  cursor: pointer;
+
+  @include media-breakpoint-down(md) {
+    display: block;
+  }
+
+  &.active {
+    .burger__lines {
+      background: rgba($white, 0);
+
+      &:after {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        bottom: 0;
+      }
+
+      &:before {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        top: 0;
+      }
+    }
+  }
+
+  &__text {
+    margin-right: 10px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 100%;
+
+    @include media-breakpoint-down(sm) {
+      width: 70px;
+    }
+  }
+
+  &__menu {
+    display: block;
+    position: relative;
+    margin: 0;
+    width: 20px;
+    height: 17px;
+    z-index: 27;
+    cursor: pointer;
+  }
+
+  &__lines {
+    position: absolute;
+    background: rgba($white, 1);
+    width: 100%;
+    height: 3px;
+    top: 7px;
+    right: 0;
+    opacity: 1;
+
+    &:before {
+      position: absolute;
+      background: rgba($white, 1);
+      width: 100%;
+      height: 3px;
+      top: 7px;
+      left: 0;
+      content: "";
+      display: block;
+    }
+
+    &:after {
+      position: absolute;
+      background: rgba($white, 1);
+      width: 100%;
+      height: 3px;
+      bottom: 7px;
+      left: 0;
+      content: "";
+      display: block;
+    }
+  }
+
+  &__lines,
+  &__lines::after,
+  &__lines::before {
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+  }
+}

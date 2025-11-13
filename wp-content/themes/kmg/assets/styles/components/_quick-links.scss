@@ -1,0 +1,102 @@
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px;
+
+    &__button-wrapper {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0 8px;
+        margin-bottom: 20px;
+
+        // @include media-breakpoint-down(md) {
+        //     flex: 0 0 50%;
+        //     max-width: 50%;
+        //     margin-bottom: 16px;
+        // }
+
+        @include media-breakpoint-down(xs) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    &__button {
+        position: relative;
+        display: block;
+        padding: 30px;
+        background: $offwhite;
+
+        @include media-breakpoint-down(lg) {
+            padding-right: 75px;
+            padding-left: 30px;
+        }
+
+        @include media-breakpoint-down(md) {
+            padding: 30px 75px 30px 30px;
+        }
+
+        // &:before, &:after {
+        //     content: '';
+        //     display: block;
+        //     position: absolute;
+        //     top: 50%;
+        //     right: 70px;
+        //     width: 62px;
+        //     height: 32px;
+        //     transform: translateY(-50%);
+        //     transition: 300ms;
+        //     pointer-events: none;
+
+        //     @include media-breakpoint-down(lg) {
+        //         width: 40px;
+        //         right: 25px;
+        //     }
+        // }
+
+        // &:before {
+        //     background: url(../images/arrow-right-white.svg) center no-repeat;
+        //     background-size: contain;
+        //     opacity: 0;
+        // }
+
+        // &:after {
+        //     background: url(../images/arrow-right.svg) center no-repeat;
+        //     background-size: contain;
+        // }
+
+        &:hover, &:focus {
+            background: $color-primary;
+
+            h5 {
+                color: $white;
+            }
+
+            &:before {
+                opacity: 1;
+            }
+
+            &:after {
+                opacity: 0;
+            }
+        }
+    }
+
+    h5 {
+        margin-bottom: 0;
+        transition: 300ms;
+    }
+}
+
+.single-service {
+    .signposts {
+        @media (max-width:1550px) {
+            padding-bottom:0;
+        }
+        &:after {
+            @media (max-width:1550px) {
+                display:none;
+            }
+        }
+    }
+}
