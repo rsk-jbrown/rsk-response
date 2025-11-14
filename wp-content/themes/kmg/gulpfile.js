@@ -10,7 +10,7 @@ const newer = require("gulp-newer");
 const plumber = require("gulp-plumber");
 const postcss = require("gulp-postcss");
 const rename = require("gulp-rename");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require('sass'));
 const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
 
@@ -31,10 +31,6 @@ const paths = {
         src: "./assets/images/*",
         dest: "./dist/images/"
     },
-    fonts: {
-        src: "./assets/fonts/*",
-        dest: "./dist/fonts/"
-    },
     html: {
         src: ["./*.php", "./lib/**/*"]
     }
@@ -50,14 +46,10 @@ function browserSync(done) {
 
 // BrowserSync Reload
 function browserSyncReload(done) {
-    browsersync.reload();
+    //browsersync.reload();
     done();
 }
 
-// Clean Styles
-function clean() {
-    return del(["dist"]);
-}
 
 // Optimize Styles
 function styles() {
@@ -82,7 +74,7 @@ function styles() {
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(rename({ suffix: ".min" }))
         .pipe(gulp.dest(paths.styles.dest))
-        .pipe(browsersync.stream());
+        //.pipe(browsersync.stream());
 }
 
 // Optimize Scripts
@@ -107,7 +99,7 @@ function scripts() {
         )
         .pipe(concat("main.min.js"))
         .pipe(gulp.dest(paths.scripts.dest))
-        .pipe(browsersync.stream());
+       // .pipe(browsersync.stream());
 }
 
 function scriptsVendor() {
@@ -140,7 +132,7 @@ function images() {
         .pipe(
             imagemin([
                 imagemin.gifsicle({ interlaced: true }),
-                imagemin.jpegtran({ progressive: true }),
+                imagemin.mozjpeg({ progressive: true }),
                 imagemin.optipng({ optimizationLevel: 5 }),
                 imagemin.svgo({
                     plugins: [
@@ -155,35 +147,27 @@ function images() {
         .pipe(gulp.dest(paths.images.dest));
 }
 
-// Package Fonts
-function fonts() {
-    return gulp.src(paths.fonts.src).pipe(gulp.dest(paths.fonts.dest));
-}
 
 // Watch Files
 function watchFiles() {
     gulp.watch(paths.styles.src, styles);
     gulp.watch(paths.scripts.src, scripts);
     gulp.watch(paths.images.src, images);
-    gulp.watch(paths.fonts.src, fonts);
-    gulp.watch(paths.html.src, browserSyncReload);
+   // gulp.watch(paths.html.src, browserSyncReload);
 }
 
-const watch = gulp.parallel(watchFiles, browserSync);
+const watch = gulp.parallel(watchFiles);
 
 // Build Assets
 const build = gulp.series(
-    clean,
-    gulp.parallel(styles, scripts, scriptsVendor, images, fonts),
+    gulp.parallel(styles, scripts, scriptsVendor, images),
     watch
 );
 
 // Tasks
-exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.images = images;
-exports.fonts = fonts;
 exports.watch = watch;
 exports.build = build;
 
